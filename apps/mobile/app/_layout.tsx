@@ -1,5 +1,10 @@
-import { Stack } from "expo-router";
+import { TQProvider } from "@/feats/shared/providers/tq-provider"
+import { Stack } from "expo-router"
 
 export default function RootLayout() {
-  return <Stack />;
+  return (
+    <TQProvider>
+      <Stack />
+    </TQProvider>
+  )
 }

@@ -13,7 +13,7 @@ const createTodoRPC = os.todos.create.handler(async ({ input: { name } }) => {
 const updateTodoRPC = os.todos.update.handler(
   async ({ input: { id, name, completed } }) => {
     if (!id) {
-      throw new ORPCError("ID is required")
+      throw new ORPCError("BAD_REQUEST")
     }
     return await updateTodo({ id, name, completed })
   },
@@ -21,7 +21,7 @@ const updateTodoRPC = os.todos.update.handler(
 
 const deleteTodoRPC = os.todos.delete.handler(async ({ input: { id } }) => {
   if (!id) {
-    throw new ORPCError("ID is required")
+    throw new ORPCError("BAD_REQUEST")
   }
   return await deleteTodo({ id })
 })
